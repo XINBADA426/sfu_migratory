@@ -380,7 +380,7 @@ def multi_roc_pr_plot(models_dict, X_test, y_test, d_out: Path,
 
         colors = list(COLORS.values())
 
-        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 7))
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7, 3.5))
 
         results_summary = []
 
@@ -458,11 +458,11 @@ def multi_roc_pr_plot(models_dict, X_test, y_test, d_out: Path,
         ax1.plot([0, 1], [0, 1], color='gray', linewidth=1, linestyle='--', alpha=0.5)
         ax1.set_xlim([0.0, 1.0])
         ax1.set_ylim([0.0, 1.05])
-        ax1.set_xlabel('False Positive Rate', fontsize=11)
-        ax1.set_ylabel('True Positive Rate', fontsize=11)
-        ax1.set_title('ROC Curves', fontsize=12, fontweight='bold')
+        ax1.set_xlabel('False Positive Rate', fontsize=12)
+        ax1.set_ylabel('True Positive Rate', fontsize=12)
+        ax1.set_title('A. ROC Curves', fontsize=14, fontweight='bold', pad=15, loc='left')
         ax1.legend(loc="lower right", frameon=True, fancybox=False,
-                   edgecolor='black', framealpha=0.9, fontsize=9)
+                   edgecolor='black', framealpha=0.9, fontsize=5)
         ax1.grid(True, alpha=0.3, linewidth=0.5)
 
         baseline = len(y_test[y_test == 1]) / len(y_test)
@@ -470,22 +470,23 @@ def multi_roc_pr_plot(models_dict, X_test, y_test, d_out: Path,
                     alpha=0.5, label=f'Baseline (Positive rate: {baseline:.3f})')
         ax2.set_xlim([0.0, 1.0])
         ax2.set_ylim([0.0, 1.05])
-        ax2.set_xlabel('Recall', fontsize=11)
-        ax2.set_ylabel('Precision', fontsize=11)
-        ax2.set_title('Precision-Recall Curves', fontsize=12, fontweight='bold')
+        ax2.set_xlabel('Recall', fontsize=12)
+        ax2.set_ylabel('Precision', fontsize=12)
+        ax2.set_title('B. Precision-Recall Curves', fontsize=14, fontweight='bold', pad=15, loc='left')
         ax2.legend(loc="lower left", frameon=True, fancybox=False,
-                   edgecolor='black', framealpha=0.9, fontsize=9)
+                   edgecolor='black', framealpha=0.9,fontsize=5)
         ax2.grid(True, alpha=0.3, linewidth=0.5)
 
         for ax in [ax1, ax2]:
             ax.spines['top'].set_visible(False)
             ax.spines['right'].set_visible(False)
             ax.set_axisbelow(True)
+            ax.tick_params(axis='both', labelsize=10)
 
-        plt.tight_layout()
+        plt.tight_layout(w_pad=0.5)
+
         plt.savefig(f_plot, bbox_inches='tight', dpi=300)
         plt.close()
-
         with open(f_stat, 'w') as OUT:
             print("\nModel Performance Summary:", file=OUT)
             print("-" * 80, file=OUT)
