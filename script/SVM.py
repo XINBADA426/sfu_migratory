@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Author: Chaobo Ren
+# @Author: CB Ren
 # @Created Date:   2024/10/14 11:36
 import pickle
 from pathlib import Path

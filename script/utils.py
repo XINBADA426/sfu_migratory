@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Author: Chaobo Ren
+# @Author: CB Ren
 # @Created Date:   2024/10/8 0:19
 import matplotlib.pyplot as plt
 import matplotlib as mpl

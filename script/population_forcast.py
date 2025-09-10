@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Author: Chaobo Ren
+# @Author: CB Ren
 # @Date: 2024-09-26 07:43:26
 # @Description: "使用vcf文件进行群体预测"
 # Path: /data1/NFS/home/rcb/project/YYR2024082901
